@@ -47,3 +47,11 @@ This project incorporates multiple concepts explored throughout the course, dire
 ### **Overall Workflow**
 
 ![Sim-to-Cloud Flowchart Diagram](figs/sim2cloud.png)
+
+The above attached diagram describes a three-stage pipeline designed to generate synthetic training data from real-world images and utilize it to deploy a cloud-based object detection model.
+
+  - **Stage 1: Data Acquisition & Preprocessing**: The workflow begins with real-world, single-view images. These images are processed using SAM 3D       (Segment Anything Model 3D) to create segmented and 3D reconstructed meshes of the target objects. This data acquisition and preprocessing step is adapted from one of our earlier projects (https://github.com/dayyapp_ncstate/ECE875_SoGo.git) that also utilizes this SAM 3D model in an inference manner. 
+
+  - **Stage 2: Synthetic Data Generation**: The resulting 3D meshes are first converted into the USD format and then imported into the NVIDIA Isaac Sim platform. Later, with the help of the Isaac Sim's Synthetic Data Recorder, diverse rendered products of the synthetic scenes are created outputting a dataset of synthetic 2D RGB images.
+
+  - **Stage 3: Model Training & Inference**: The newly generated synthetic images are moved to the cloud and stored in AWS S3 Buckets. This data is then consumed by Amazon SageMaker to train and deploy a YOLOv8 (You Only Look Once) object detection model for inference tasks.
