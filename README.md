@@ -9,7 +9,7 @@ Modern computer vision systems depend heavily on high-quality labeled datasets. 
 
 This project aims to explore how **synthetically generated data** can be integrated into a **cloud-based AI deployment pipeline**. By using **NVIDIA Isaac Sim’s Replicator API**, we generate images. These assets are then exported to **AWS S3**, enabling secure, scalable storage. A **pre-trained model** hosted in **AWS SageMaker** is used solely for **inference**, allowing the pipeline to test how synthetic inputs perform in downstream CV applications.
 
-Using AI—in this case, computer vision inference—is essential because synthetic data generation unlocks opportunities for developing robust models while reducing dataset acquisition costs. Evaluating such data through a deployed cloud inference system helps validate the **feasibility and usefulness** of synthetic data in modern AI workflows.
+It is essential because synthetic data generation unlocks opportunities for developing robust models while reducing dataset acquisition costs. Evaluating such data through a deployed cloud inference system helps validate the **feasibility and usefulness** of synthetic data in modern AI workflows.
 
 ---
 
