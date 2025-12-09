@@ -33,6 +33,13 @@ This project incorporates multiple concepts explored throughout the course, dire
   - Code version tracking and testing.  
 - Ensures full reproducibility of the deployment pipeline.  
 
+### **✔ Monitoring & Logging**
+- Inference outputs and execution logs are captured through SageMaker.
+
+### **✔ Ethical Considerations**
+- Synthetic data avoids privacy issues associated with real-world datasets.  
+- Reduces reliance on human subjects and potential biases in manual annotations/  
+
 ---
 
 ## 📌 3. Documentation & Workflow Explanation
