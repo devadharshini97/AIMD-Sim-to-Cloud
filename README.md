@@ -4,7 +4,7 @@
 
 ---
 
-## 📌 1. Motivation & Problem Definition
+## 📌 1. Motivation & Problem Statement
 
 Modern computer vision (CV) systems depend heavily on high-quality labeled datasets. However, collecting and annotating large-scale image datasets in the real world is **time-consuming**, **expensive**, and often **infeasible** in scenarios involving rare events or controlled environments. Synthetic data has emerged as an effective alternative, allowing developers to generate customizable, scalable datasets that closely mimic real-world conditions.
 
