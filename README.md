@@ -46,16 +46,4 @@ This project incorporates multiple concepts explored throughout the course, dire
 
 ### **Overall Workflow**
 
-```txt
-Isaac Sim (Replicator API)
-        ↓
-Synthetic Images + Annotations
-        ↓ Export
-Amazon S3 Bucket (Cloud Storage)
-        ↓
-AWS SageMaker (Pre-trained Model Endpoint)
-        ↓
-Inference on Synthetic Data
-        ↓
-Results Logged / Returned to User
-
+![Sim-to-Cloud Flowchart Diagram](figs/sim2cloud.png)
