@@ -1,66 +1,62 @@
 # AIMD-Sim-to-Cloud : Synthetic Data Pipeline for Computer Vision via AWS
-
-This project explores the deployment of **synthetically generated data** for downstream computer vision tasks using **AWS cloud services**. Synthetic data is created using **NVIDIA Isaac Sim’s Replicator API**, after which the rendered images and annotations are exported to **Amazon S3** for scalable and secure cloud storage.
-
-Once stored, the dataset is accessed by **AWS SageMaker**, which is used to train computer vision models using its built-in algorithms and managed compute services. To ensure automation, reproducibility, and continuous integration, a **GitHub Actions** workflow is incorporated to handle version control, testing, and model deployment steps.
+*Course Project — Cloud-Based AI Deployment*
 
 ---
 
-## 🚀 Project Objectives
+## 📌 1. Motivation & Problem Definition
 
-- Generate high-quality synthetic computer vision datasets using **Isaac Sim Replicator API**  
-- Export images and annotations directly to **AWS S3**  
-- Use **AWS SageMaker** to retrieve training data from S3 and run built-in ML algorithms  
-- Integrate **GitHub Actions** for CI/CD, model deployment, and workflow automation  
-- Apply concepts from cloud computing including:
-  - **Version Control:** GitHub Actions  
-  - **Virtualized Instances:** EC2  
-  - **Cloud Storage:** S3  
-  - **Model Training & Deployment:** SageMaker  
+Modern computer vision systems depend heavily on high-quality labeled datasets. However, collecting and annotating large-scale image datasets in the real world is **time-consuming**, **expensive**, and often **infeasible** in scenarios involving rare events or controlled environments. Synthetic data has emerged as an effective alternative, allowing developers to generate customizable, scalable datasets that closely mimic real-world conditions.
+
+This project aims to explore how **synthetically generated data** can be integrated into a **cloud-based AI deployment pipeline**. By using **NVIDIA Isaac Sim’s Replicator API**, we generate images and their associated annotations automatically. These assets are then exported to **AWS S3**, enabling secure, scalable storage. A **pre-trained model** hosted in **AWS SageMaker** is used solely for **inference**, allowing the pipeline to test how synthetic inputs perform in downstream CV applications.
+
+Using AI—in this case, computer vision inference—is essential because synthetic data generation unlocks opportunities for developing robust models while reducing dataset acquisition costs. Evaluating such data through a deployed cloud inference system helps validate the **feasibility and usefulness** of synthetic data in modern AI workflows.
 
 ---
 
-## 🧰 Technologies Used
+## 📌 2. Use of Course Concepts
 
-- **NVIDIA Isaac Sim + Replicator API**
-- **AWS S3**
-- **AWS EC2**
-- **AWS SageMaker**
-- **GitHub Actions (CI/CD)**
-- **Python**
-- **Docker (optional)**
+This project incorporates multiple concepts explored throughout the course, directly applying them to a real-world cloud AI workflow:
+
+### **✔ Cloud Computing**
+- **Amazon S3** for cloud object storage of synthetic images and annotations  
+- **AWS SageMaker** for model hosting, inference, and managed compute resources  
+- **EC2** instances used by SageMaker endpoints under the hood  
+
+### **✔ Virtualization & Scalability**
+- SageMaker endpoints automatically scale based on incoming inference requests  
+- S3 provides virtually unlimited storage for synthetic datasets  
+
+### **✔ Reproducibility & CI/CD**
+- **GitHub Actions** is used to automate:
+  - Deployment of SageMaker inference endpoints  
+  - Synchronization of data to S3  
+  - Code version tracking and testing  
+- Ensures full reproducibility of the deployment pipeline  
+
+### **✔ Monitoring & Logging**
+- Inference outputs and execution logs are captured through SageMaker  
+- AWS CloudWatch supports monitoring endpoint behavior and performance  
+
+### **✔ Ethical Considerations**
+- Synthetic data avoids privacy issues associated with real-world datasets  
+- Reduces reliance on human subjects and potential biases in manual annotations  
 
 ---
 
-## 📦 High-Level Workflow
+## 📌 3. Documentation & Workflow Explanation
 
-1. **Synthetic Data Generation**  
-   Use Isaac Sim’s Replicator API to generate images and annotations.
-
-2. **Cloud Storage with S3**  
-   Export all generated data directly into an S3 bucket.
-
-3. **Model Training in SageMaker**  
-   Launch SageMaker training jobs that pull data from S3 and use built-in CV algorithms.
-
-4. **Automation with GitHub Actions**  
-   CI/CD pipeline handles:
-   - Version control checks  
-   - Automated builds/tests  
-   - Deployment of new training jobs or models  
-
----
-
-## 📁 Repository Structure (Suggested)
+### **Overall Workflow**
 
 ```txt
-├── data/                  # Sample synthetic data (if small)
-├── src/
-│   ├── replicator/        # Isaac Sim scripts
-│   ├── sagemaker/         # Training and deployment scripts
-│   └── utils/             
-├── .github/
-│   └── workflows/         # GitHub Actions pipelines
-├── docs/                  # Documentation
-├── README.md              # Project overview
-└── requirements.txt
+Isaac Sim (Replicator API)
+        ↓
+Synthetic Images + Annotations
+        ↓ Export
+Amazon S3 Bucket (Cloud Storage)
+        ↓
+AWS SageMaker (Pre-trained Model Endpoint)
+        ↓
+Inference on Synthetic Data
+        ↓
+Results Logged / Returned to User
+
