@@ -38,7 +38,7 @@ This project incorporates multiple concepts explored throughout the course, dire
 
 ### **✔ Ethical Considerations**
 - Synthetic data avoids privacy issues associated with real-world datasets.  
-- Reduces reliance on human subjects and potential biases in manual annotations/  
+- Reduces reliance on human subjects and potential biases in manual annotations.
 
 ---
 
